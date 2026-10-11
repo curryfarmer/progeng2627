@@ -1,0 +1,35 @@
+// still incomplete
+#include <iostream>
+
+int main(){
+    int year;
+    bool isleap;
+
+    std::cout << "please enter a year" << std::endl;
+    std::cin >> year;
+
+    if( (year % 4) == 0){ 
+        // if multiple of 4
+        isleap = true;
+
+        if( (year % 100) == 0){ 
+            // if (also) multiple of 100
+            isleap = false;
+            // ...
+
+        }
+        if ((year%400) == 0){
+            isleap = true;
+        }
+    }
+    else{
+        // if not multiple of 4
+        isleap=false;
+    }
+
+    if (isleap){
+        std::cout<< "its a leap year" <<std::endl;
+    } else {
+        std::cout<< "its not a leap year" <<std::endl;
+    }
+}

@@ -1,0 +1,38 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "g++ build active file",
+      "type": "shell",
+      "command": "C:/msys64/ucrt64/bin/g++.exe",
+      "args": [
+        "-std=c++23",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-g",
+        "-D_GLIBCXX_ASSERTIONS",
+        "-fstack-protector-strong",
+        "${file}",
+        "-o",
+        "${fileDirname}/${fileBasenameNoExtension}.exe"
+      ],
+      "options": { "cwd": "${fileDirname}" },
+      "problemMatcher": ["$gcc"],
+      "group": { "kind": "build", "isDefault": true },
+      "detail": "Compile the open .cpp file with warnings, debug info, STL assertions."
+    },
+    {
+      "label": "g++ build + run active file",
+      "type": "shell",
+      "command": "C:/msys64/ucrt64/bin/g++.exe -std=c++23 -Wall -Wextra -Wpedantic -g -D_GLIBCXX_ASSERTIONS \"${file}\" -o \"${fileDirname}/${fileBasenameNoExtension}.exe\" && \"${fileDirname}/${fileBasenameNoExtension}.exe\"",
+      "options": {
+        "cwd": "${fileDirname}",
+        "shell": { "executable": "cmd.exe", "args": ["/d", "/c"] }
+      },
+      "problemMatcher": ["$gcc"],
+      "group": "build",
+      "detail": "Compile then immediately run the open .cpp file (cmd.exe shell)."
+    }
+  ]
+}
