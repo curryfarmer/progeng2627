@@ -7,6 +7,7 @@ int main(){
     std::string unit_in, unit_out;
 
     const double mile_to_km = 1.609; 
+    // anything other than km is assumed to miles
 
     std::cin >> length_in >> unit_in; 
 
